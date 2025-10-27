@@ -1,64 +1,138 @@
-## Objetivo
+Create a RESTful API resource `product` for a store.
 
-Aqui vai o objetivo macro do roteiro. Por que estamos fazendo o que estamos fazendo?
 
-## Montagem do Roteiro
-
-Os pontos "tarefas" são os passos que devem ser seguidos para a realização do roteiro. Eles devem ser claros e objetivos. Com evidências claras de que foram realizados.
-
-### Tarefa 1
-
-Instalando o MAAS:
-
-<!-- termynal -->
-
-``` bash
-sudo snap install maas --channel=3.5/Stable
+``` mermaid
+flowchart LR
+    subgraph api [Trusted Layer]
+        direction TB
+        gateway --> account
+        gateway --> auth
+        account --> db@{ shape: cyl, label: "Database" }
+        auth --> account
+        gateway e5@==> product:::red
+        gateway e6@==> order
+        product e2@==> db
+        order e3@==> db
+        order e4@==> product
+    end
+    internet e1@==>|request| gateway
+    e1@{ animate: true }
+    e2@{ animate: true }
+    e3@{ animate: true }
+    e4@{ animate: true }
+    e5@{ animate: true }
+    e6@{ animate: true }
+    classDef red fill:#fcc
+    click product "#product-api" "Product API"
 ```
 
-![Tela do Dashboard do MAAS](./maas.png)
-/// caption
-Dashboard do MAAS
-///
+!!! warning "Attention"
 
-Conforme ilustrado acima, a tela inicial do MAAS apresenta um dashboard com informações sobre o estado atual dos servidores gerenciados. O dashboard é composto por diversos painéis, cada um exibindo informações sobre um aspecto específico do ambiente gerenciado. Os painéis podem ser configurados e personalizados de acordo com as necessidades do usuário.
+    **To consume the API, the user must be authenticated.**
 
-### Tarefa 2
+## Product API
 
-## App
+**link product:**
+[https://github.com/felipemarianoferr/pma.25.2.product](https://github.com/felipemarianoferr/pma.25.2.product)
+
+**link product service:**
+[https://github.com/felipemarianoferr/pma.25.2.product-service](https://github.com/felipemarianoferr/pma.25.2.product-service)
+
+The API should have the following endpoints:
+
+!!! info "POST /product"
+
+    Create a new product.
+
+    === "Request"
+
+        ``` { .json .copy .select linenums='1' }
+        {
+            "name": "Tomato",
+            "price": 10.12,
+            "unit": "kg"
+        }
+        ```
+
+    === "Response"
+
+        ``` { .json .copy .select linenums='1' }
+        {
+            "id": "0195abfb-7074-73a9-9d26-b4b9fbaab0a8",
+            "name": "Tomato",
+            "price": 10.12,
+            "unit": "kg"
+        }
+        ```
+        ```bash
+        Response code: 201 (created)
+        ```
+    
+    === "postman"
+
+        ![](post.png){width = 100%}
 
 
+!!! info "GET /product"
 
-### Tarefa 1
+    Get all products.
 
-### Tarefa 2
+    === "Response"
 
-Exemplo de diagrama
+        ``` { .json .copy .select linenums='1' }
+        [
+            {
+                "id": "0195abfb-7074-73a9-9d26-b4b9fbaab0a8",
+                "name": "Tomato",
+                "price": 10.12,
+                "unit": "kg"
+            },
+            {
+                "id": "0195abfe-e416-7052-be3b-27cdaf12a984",
+                "name": "Cheese",
+                "price": 0.62,
+                "unit": "slice"
+            }
+        ]
+        ```
+        ```bash
+        Response code: 200 (ok)
+        ```
 
-```mermaid
-architecture-beta
-    group api(cloud)[API]
+    === "postman"
 
-    service db(database)[Database] in api
-    service disk1(disk)[Storage] in api
-    service disk2(disk)[Storage] in api
-    service server(server)[Server] in api
+        ![](get.png){width = 100%}
 
-    db:L -- R:server
-    disk1:T -- B:server
-    disk2:T -- B:db
-```
+!!! info "GET /product/{id}"
 
-[Mermaid](https://mermaid.js.org/syntax/architecture.html){:target="_blank"}
+    Get a product by its ID.
 
-## Questionário, Projeto ou Plano
+    === "Response"
 
-Esse seção deve ser preenchida apenas se houver demanda do roteiro.
+        ``` { .json .copy .select linenums='1' }
+        {
+            "id": "0195abfb-7074-73a9-9d26-b4b9fbaab0a8",
+            "name": "Tomato",
+            "price": 10.12,
+            "unit": "kg"
+        }
+        ```
+        ```bash
+        Response code: 200 (ok)
+        ```
+    
+    === "postman"
 
-## Discussões
+        ![](getid.png){width = 100%}
 
-Quais as dificuldades encontradas? O que foi mais fácil? O que foi mais difícil?
+!!! info "DELETE /product/{id}"
 
-## Conclusão
+    Delete a product by its ID.
+    === "Response"
+        ```bash
+        Response code: 204 (no content)
+        ```
 
-O que foi possível concluir com a realização do roteiro?
+    === "postman"
+
+        ![](delete.png){width = 100%}
