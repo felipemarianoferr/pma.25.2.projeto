@@ -24,11 +24,11 @@
 
 ## Entregas
 
-- [x] Roteiro 1 - Data 23/02/2025
-- [ ] Roteiro 2
-- [ ] Roteiro 3
-- [ ] Roteiro 4
-- [ ] Projeto
+- [x] Roteiro 1 - Product
+- [x] Roteiro 2 - Order
+- [x] Roteiro 3 - Exchange
+- [x] Roteiro 4 - Jenkins
+- [ ] Roteiro 5 - TODO
 
 ## Diagramas
 

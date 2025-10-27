@@ -38,7 +38,7 @@ flowchart LR
 **link product service:**
 [https://github.com/felipemarianoferr/pma.25.2.product-service](https://github.com/felipemarianoferr/pma.25.2.product-service)
 
-The API should have the following endpoints:
+The API have the following endpoints:
 
 !!! info "POST /product"
 
