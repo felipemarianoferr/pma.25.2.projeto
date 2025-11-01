@@ -54,4 +54,4 @@ flowchart LR
     
     === "postman"
 
-        ![](get.png){width = 100%}
+        ![](exchange.png){width = 100%}
