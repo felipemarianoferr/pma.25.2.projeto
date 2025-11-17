@@ -2,12 +2,12 @@
     
     Este projeto foi desenvolvido pelos seguintes integrantes:
     - Felipe Mariano Ferreira
-    - [Luise Pessoa]
-    - [Luigi Lopez Carmona]
+    - Luise Pessoa
+    - Luigi Lopez Carmona
 
 !!! tip "Link contendo todos repositorios usados"
     
-    - **[Account Service](https://github.com/orgs/microservices-architecture-example/repositories)**
+    - **[All repos](https://github.com/orgs/microservices-architecture-example/repositories)**
 
 ---
 
