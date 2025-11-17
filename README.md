@@ -1,44 +1,17 @@
-## Setup
+## Sobre o Projeto
 
-Para utilizar o código deste repositório, siga as instruções a seguir:
+Este repositório contém as documentações da disciplina de **Microserviços**, incluindo:
 
-Crie um ambiente virtual do Python:
+- **Roteiros Individuais**: Documentações dos roteiros 1 a 5 desenvolvidos individualmente
+  - Roteiro 1 - Product API
+  - Roteiro 2 - Order API
+  - Roteiro 3 - Exchange API
+  - Roteiro 4 - Jenkins
+  - Roteiro 5 - Kubernetes
 
-``` shell
-python3 -m venv env
-```
-
-Ative o ambiente virtual (**você deve fazer isso sempre que for executar algum script deste repositório**):
-
-``` shell
-source ./env/bin/activate
-```
-
-Instale as dependências com:
-
-``` shell
-python3 -m pip install -r requirements.txt --upgrade
-```
-
-## Deployment
-
-O material utiliza o [mkdocs](https://www.mkdocs.org/) para gerar a documentação. Para visualizar a documentação, execute o comando:
-
-``` shell
-mkdocs serve -o
-```
-
-Para subir ao GitHub Pages, execute o comando:
-
-``` shell
-mkdocs gh-deploy
-```
-
-
-## Notebooks
-
-Para subir notebooks no mkdocs, podemos utilizar a biblioteca do [mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter).
-
-Instalação, utilização e exemplos podem ser vistos na [documentação oficial](https://github.com/danielfrg/mkdocs-jupyter).
-
-O arquivo `mkdocs.yml` tem anotações nos nós modificados de exemplo.
+- **Projeto em Grupo**: Documentação do projeto final desenvolvido em equipe, incluindo:
+  - Configuração AWS e EKS
+  - Testes de carga
+  - CI/CD com Jenkins
+  - Análise de custos
+  - Serviços PaaS utilizados
